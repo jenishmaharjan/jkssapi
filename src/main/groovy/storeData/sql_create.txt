@@ -1,0 +1,6 @@
+CREATE TABLE INVENTORY
+(
+  id       INTEGER PRIMARY KEY,
+  version  INTEGER,
+  itemName VARCHAR(256)
+)
