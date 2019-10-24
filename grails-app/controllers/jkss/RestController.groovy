@@ -22,6 +22,4 @@ class RestController extends RestfulController {
     private static def getItemFromDatabase(itemName){
         return StoreItem.list().find{it.name == itemName}
     }
-
-    static allowedMethods = [getInventory: "GET"]
 }
