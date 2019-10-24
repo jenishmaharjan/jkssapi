@@ -15,12 +15,12 @@ class RestController extends RestfulController {
     @Override
     def show(){
         //params.get("imageUrl") will return image url passed in GET request.
-        render getItemFromDatabase(1) as JSON
+        render getItemFromDatabase("Test") as JSON
 
     }
 
-    private static def getItemFromDatabase(itemId){
-        return StoreItem.get(itemId)
+    private static def getItemFromDatabase(itemName){
+        return StoreItem.list().find{it.name == itemName}
     }
 
     static allowedMethods = [getInventory: "GET"]
