@@ -1,11 +1,15 @@
 package objectDetection
 
-import com.google.cloud.vision.v1.AnnotateImageRequest
-import com.google.cloud.vision.v1.Feature
 import com.google.cloud.vision.v1.Feature.Type
-import com.google.cloud.vision.v1.Image
-import com.google.cloud.vision.v1.ImageAnnotatorClient
+import com.google.cloud.vision.v1.*
 import com.google.protobuf.ByteString
+import javax.imageio.ImageIO
+import java.io.*
+import java.net.HttpURLConnection
+import java.net.MalformedURLException
+import java.net.URL
+import java.util.ArrayList
+import java.util.List
 
 class ObjectDetector {
     /**
@@ -40,11 +44,47 @@ class ObjectDetector {
         for (def res : responses) {
             def list = res.getLocalizedObjectAnnotationsList()
             for (def i = 0; i < list.size(); i++) {
-                if (!output.containsValue(list.get(i).getName())){
+                if (!output.containsValue(list.get(i).getName())) {
                     output.put("Item " + i, list.get(i).getName())
                 }
             }
         }
         return output
+    }
+
+    def detectObjectsFromImageUrl(String imageUrl) throws Exception, IOException {
+        List<AnnotateImageRequest> requests = new ArrayList<>()
+
+        ImageSource imgSource = ImageSource.newBuilder()
+                .setImageUri(imageUrl)
+                .build()
+        Image img = Image.newBuilder()
+                .setSource(imgSource)
+                .build()
+
+        AnnotateImageRequest request = AnnotateImageRequest.newBuilder()
+                .addFeatures(Feature.newBuilder()
+                .setType(Feature.Type.OBJECT_LOCALIZATION))
+                .setImage(img)
+                .build()
+        requests.add(request)
+
+        ArrayList<String> objectNames = new ArrayList<>();
+
+        // Perform the request
+        ImageAnnotatorClient client = ImageAnnotatorClient.create()
+
+        BatchAnnotateImagesResponse response = client.batchAnnotateImages(requests)
+        List<AnnotateImageResponse> responses = response.getResponsesList()
+        client.close()
+        // Display the results
+        for (AnnotateImageResponse res : responses) {
+            for (LocalizedObjectAnnotation entity : res.getLocalizedObjectAnnotationsList()) {
+                objectNames.add(entity.getName())
+            }
+        }
+
+
+        return objectNames
     }
 }

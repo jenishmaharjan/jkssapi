@@ -23,6 +23,16 @@ class RestController extends RestfulController {
         render results as JSON
     }
 
+    ///identifyObject/?url=INSERT_URL_HERE to get object.
+    def identifyObjectInImage(){
+        def objectDetector = new ObjectDetector()
+        def results = objectDetector.detectObjectsFromImageUrl(params.get("url"))
+        //JSON converter will be used here to put objects into better format. Just using first result as POC.
+        def jsonObject = [:]
+        jsonObject.put("Object", results.get(0))
+        render jsonObject as JSON
+    }
+
     private static def getItemFromDatabase(itemName){
         return StoreItem.list().find{it.name == itemName}
     }

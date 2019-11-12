@@ -11,6 +11,7 @@ class UrlMappings {
         patch "/$controller/$id(.$format)?"(action:"patch")
 
         "/getStoreInventory"(controller: 'rest', action: 'show')
+        "/identifyObject/?url=${url}?"(controller: 'rest', action: 'identifyObjectInImage')
         "500"(view: '/error')
         "404"(view: '/notFound')
     }
