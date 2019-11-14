@@ -5,6 +5,7 @@ import grails.rest.*
 import grails.converters.*
 import jskkData.StoreItem
 import objectDetection.ObjectDetector
+import utils.JsonFormatter
 
 class RestController extends RestfulController {
     static responseFormats = ['json', 'xml']
@@ -23,14 +24,12 @@ class RestController extends RestfulController {
         render results as JSON
     }
 
-    ///identifyObject/?url=INSERT_URL_HERE to get object.
+    ///identifyObject/?url={url} to get object.
     def identifyObjectInImage(){
         def objectDetector = new ObjectDetector()
         def results = objectDetector.detectObjectsFromImageUrl(params.get("url"))
-        //JSON converter will be used here to put objects into better format. Just using first result as POC.
-        def jsonObject = [:]
-        jsonObject.put("Object", results.get(0))
-        render jsonObject as JSON
+        def jsonFormatter = new JsonFormatter(results)
+        render jsonFormatter.getJsonFromIdentifiedObjects() as JSON
     }
 
     private static def getItemFromDatabase(itemName){
