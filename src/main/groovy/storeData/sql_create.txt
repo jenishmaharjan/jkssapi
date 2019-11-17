@@ -2,5 +2,11 @@ CREATE TABLE INVENTORY
 (
   id       INTEGER PRIMARY KEY,
   version  INTEGER,
-  itemName VARCHAR(256)
+  item_name VARCHAR(256),
+  description VARCHAR(512),
+  quantity_in_stock INTEGER,
+  date_of_expected_delivery DATE,
+  vendor VARCHAR(256),
+  location VARCHAR(256),
+  price INTEGER
 )
