@@ -15,35 +15,36 @@ class RestController extends RestfulController {
     }
 
     @Override
-    def show(){
+    def show() {
         def results = identifyObjectsFromUrl(params.get("url"))
         def objectsInDatabaseThatMatchImage = new ArrayList()
 
         def currentItem
         results.each {
             currentItem = getItemFromDatabase(it)
-            if (currentItem){
+            if (currentItem) {
                 objectsInDatabaseThatMatchImage.push(currentItem)
             }
         }
 
-        def jsonFormatter = new JsonFormatter(objectsInDatabaseThatMatchImage)
-        render jsonFormatter.getJsonFromIdentifiedObjects() as JSON
+        JSON.use('deep') {
+            render objectsInDatabaseThatMatchImage as JSON
+        }
     }
 
     ///identifyObject/?url={url} to get object.
-    def identifyObjectInImage(){
+    def identifyObjectInImage() {
         def results = identifyObjectsFromUrl(params.get("url"))
         def jsonFormatter = new JsonFormatter(results)
         render jsonFormatter.getJsonFromIdentifiedObjects() as JSON
     }
 
-    private static identifyObjectsFromUrl(url){
+    private static identifyObjectsFromUrl(url) {
         def objectDetector = new ObjectDetector()
         return objectDetector.detectObjectsFromImageUrl(url)
     }
 
-    private static getItemFromDatabase(itemName){
-        return StoreItem.list().find{it.name.contains(itemName)}
+    private static getItemFromDatabase(itemName) {
+        return StoreItem.list().find { it.name.contains(itemName) }
     }
 }
