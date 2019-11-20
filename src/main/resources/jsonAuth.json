@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "clever-passage-225906",
+  "private_key_id": "4dfe09e1e25eca3598ec8e1c7649bdce2df669bf",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDk6gp81pGJPp3E\nKFXaM3gJHE4T+pP0oUFuLbMeFvwUBLYT00dXfUaFnLnRHucV6nSL0vEyZ0PmlKJX\n/+yCsBtUffDI3fA1wuuqd/lAMgmer9xa1kAf3twHN+haehNflKJO94+nymdnldqT\nkdlPdaN+wTWhI9C2+oq6VcR+jSKcyxsbF+Rjs60xbk3R8ceDewGFW0sBB6GlVBne\nRLTueSwvqIw30sa4IXaJyLgLPr1QvYpsK3PcjSzwhPPV4bIZp4dz4dXiLjnf7W60\nF+8uaBduZ0UtgTSKqV3OvrpXUsPyv5JrXdX2OfHgVUqPOHYSV6at0G04xljgJL4V\n6aXOS+FhAgMBAAECggEABvvrAP8M5qqN5q+yWttqJKED8tEY1YRb+jATwG3EGBpC\nsd0m1pEAZ1AuTSaLt1v1XVS8viRvamgLgfLRdPVJiCzlfUNkMke1p/hMFvzP1VMZ\nPn4965sBjIjUonoKAEcJIq6j5+Mhf4QPbKQtBKMar2HWsIlms0Z2mBPI0HGe5jiv\nXLbfudAxQTZhCGEw7Xx0ZGy6ZAZdcXBnzK8LpK1m8LHZ/TsOdaaEsLjaYRGFKPpq\nfPROZZ58i5WYEtz1dKBzRfxahBZzXccPkESnzjSjE3Rr0MnSKB+4FzhmI0qfUh6W\nqDnOG0hKiH56MIyhR3I4qIA5MWrAOre735s4NJ4JtwKBgQD8X305/rhjTM6mmpoz\nfNBckSWFgolVTKLTAdH2SAoXzLj/t0hujNF4Iln2IKgP9GOzefzr1pNLrYC86pCy\nkByQ08J4bFfvFGa7843daBCYKssY9KdlwnRad7Nc5FyevZoEmhGCLFBXT6LctGFo\nokx80867ZjegAyKji3diyZXvGwKBgQDoND59fspfKJdtgTAa4pOdOTQx10A08RHp\nEPYQTleSGfvxw9C81wGYNCZ4b6BxP/trm5gtQhofeeyi63C1lnxxzOrfKgvhI69/\nLVant9FIlSqzpzJptTXRWe0q6oKVAznPxx/bjjLcl92NaUx61M4DzDG+7YPy3acw\ndGm1LgitMwKBgQCQufXnX0LAd1h+xGQvqKEYpIge80fsacFqPj34/UEEevuQcbwQ\n4aJyQUjT09BtLdpLH2bCnE/l8z7Dl8SZEfm/uCBqzL70tP9hQ3+Ue8wgZ1IHIq4o\ntgXhp4lteOwAgHylrPDjdKQyHdIovSyrQ3+XiiOg5jJ6CbJAlYdGWJIqBwKBgQC1\nAZzA2OhKG2tHSlBEdODay2+7dm6vlkf+5WDavycWVbkG8jyyJ+wvSF/AvEtWXKjR\nbj3G8eNJLBLhwSRf+QnS8Akaoz0VaGryeVY2cVzr9pON7cSnkEF+i1oMfTgDjrsv\nE6rqzEMroBptlGqwyVg6r58LlTypQk2EwQpx2Iuc7wKBgQCjrifImbmHtZYoot08\nHj3MB/X1YYKceBDIUIVAJKhwSoFzwHQCTla0a+5xHY275hTXdWeZ2ZHtpDDn2SOv\n2mnH0jjSfXzsXnEX8K7vu41gLax0ZT49zn7skfwmy//5q1lMtZrw+rQXmITbKI/F\nBPEAN0IHmO+5jnuS0ubdojw5tg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "kylepatrick@clever-passage-225906.iam.gserviceaccount.com",
+  "client_id": "101767495418559496419",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/kylepatrick%40clever-passage-225906.iam.gserviceaccount.com"
+}
