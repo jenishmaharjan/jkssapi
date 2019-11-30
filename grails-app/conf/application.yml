@@ -74,23 +74,37 @@ hibernate:
     use_second_level_cache: false
     use_query_cache: false
 dataSource:
-  url: jdbc:sqlite:src/main/groovy/storeData/Inventory
-  dialect: org.hibernate.dialect.MySQLDialect
-  driverClassName: org.sqlite.JDBC
+  url: jdbc:oracle:thin:@jkss-database-oracle.cwehzuuli4tf.us-east-2.rds.amazonaws.com:1521:ORCL
+  dialect: Oracle10gDialect
+  driverClassName: oracle.jdbc.OracleDriver
+  username: admin
+  password: adminadmin
 
 environments:
   development:
     dataSource:
       dbCreate: none
-      url: jdbc:sqlite:src/main/groovy/storeData/Inventory
+      url: jdbc:oracle:thin:@jkss-database-oracle.cwehzuuli4tf.us-east-2.rds.amazonaws.com:1521:ORCL
+      dialect: Oracle10gDialect
+      driverClassName: oracle.jdbc.OracleDriver
+      username: admin
+      password: adminadmin
   test:
     dataSource:
       dbCreate: none
-      url: jdbc:sqlite:src/main/groovy/storeData/Inventory
+      url: jdbc:oracle:thin:@jkss-database-oracle.cwehzuuli4tf.us-east-2.rds.amazonaws.com:1521:ORCL
+      dialect: Oracle10gDialect
+      driverClassName: oracle.jdbc.OracleDriver
+      username: admin
+      password: adminadmin
   production:
     dataSource:
       dbCreate: none
-      url: jdbc:sqlite:src/main/groovy/storeData/Inventory
+      url: jdbc:oracle:thin:@jkss-database-oracle.cwehzuuli4tf.us-east-2.rds.amazonaws.com:1521:ORCL
+      dialect: Oracle10gDialect
+      driverClassName: oracle.jdbc.OracleDriver
+      username: admin
+      password: adminadmin
       properties:
         jmxEnabled: true
         initialSize: 5
