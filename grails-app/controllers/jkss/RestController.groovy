@@ -6,6 +6,7 @@ import grails.converters.*
 import jskkData.StoreItem
 import objectDetection.ObjectDetector
 import utils.JsonFormatter
+import utils.QueryEngine
 
 class RestController extends RestfulController {
     static responseFormats = ['json', 'xml']
@@ -21,7 +22,7 @@ class RestController extends RestfulController {
 
         def currentItem
         results.each {
-            currentItem = getItemFromDatabase(it)
+            currentItem = QueryEngine.getInstance().getItemFromDatabase(StoreItem.class, it)
             if (currentItem) {
                 objectsInDatabaseThatMatchImage.push(currentItem)
             }
@@ -42,9 +43,5 @@ class RestController extends RestfulController {
     private static identifyObjectsFromUrl(url) {
         def objectDetector = new ObjectDetector()
         return objectDetector.detectObjectsFromImageUrl(url)
-    }
-
-    private static getItemFromDatabase(itemName) {
-        return StoreItem.list().find { it.name.contains(itemName) }
     }
 }
