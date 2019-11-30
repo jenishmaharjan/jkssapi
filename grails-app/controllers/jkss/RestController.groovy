@@ -4,7 +4,9 @@ package jkss
 import grails.rest.*
 import grails.converters.*
 import jskkData.StoreItem
+import objectDetection.GoogleVisionObjectDetector
 import objectDetection.ObjectDetector
+import objectDetection.ObjectDetectorHandler
 import utils.JsonFormatter
 import utils.QueryEngine
 
@@ -41,7 +43,7 @@ class RestController extends RestfulController {
     }
 
     private static identifyObjectsFromUrl(url) {
-        def objectDetector = new ObjectDetector()
-        return objectDetector.detectObjectsFromImageUrl(url)
+        ObjectDetectorHandler objectDetectorHandler = new ObjectDetectorHandler(ObjectDetectorHandler.ObjectDetectionMethods.GOOGLE_VISION)
+        return objectDetectorHandler.detectObjectsFromImageUrl(url)
     }
 }
